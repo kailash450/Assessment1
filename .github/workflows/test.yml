@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Send greeting
-        run: echo "Hello ${{ inputs.Input_name }}"
+        run: echo "Hello ${{ github.event.inputs.example_input }}"
 
       - name: Run a test command
         run: |
