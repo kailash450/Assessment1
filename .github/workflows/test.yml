@@ -1,0 +1,19 @@
+name: Test Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      example_input:
+        description: 'Triggered by API'
+        required: true
+        default: 'Test Input'
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Display Input
+      run: echo "Workflow triggered with input: ${{ github.event.inputs.example_input }}"
