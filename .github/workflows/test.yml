@@ -1,19 +1,26 @@
 name: Test Workflow
 
+# Define the workflow's trigger - in this case, manual trigger via API
 on:
   workflow_dispatch:
     inputs:
       example_input:
-        description: 'Triggered by API'
+        description: 'Input for the workflow'
         required: true
-        default: 'Test Input'
+        default: 'Triggered by API'
 
 jobs:
-  test_job:
+  build:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
 
-    - name: Display Input
-      run: echo "Workflow triggered with input: ${{ github.event.inputs.example_input }}"
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Display input
+        run: echo "Input received: ${{ github.event.inputs.example_input }}"
+
+      - name: Run a test command
+        run: |
+          echo "This is a test step!"
+          # Add your other test commands here
