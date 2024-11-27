@@ -1,6 +1,5 @@
 name: Test Workflow
 
-# Define the workflow's trigger - in this case, manual trigger via API
 on:
   workflow_dispatch:
     inputs:
@@ -23,4 +22,3 @@ jobs:
       - name: Run a test command
         run: |
           echo "This is a test step!"
-          # Add your other test commands here
